@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class TestAspire {
 
 	@Test(priority = 1)
 	@Parameters({"userEmail","password"})  
-	public void testCreateOrder(String userEmail, String password) {
+	public void testCreateOrder(@Optional("user@aspireapp.com")String userEmail, @Optional("@sp1r3app")String password) {
 		//perform the login process with the given credentials
 		//we can also pass credentials from testng.xml using parameter annotation
 		new LoginPage(driver);

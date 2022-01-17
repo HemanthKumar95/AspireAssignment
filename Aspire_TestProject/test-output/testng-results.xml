@@ -2,28 +2,40 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="83188" started-at="2022-01-17T03:58:00Z" finished-at="2022-01-17T03:59:23Z">
+  <suite name="Default suite" duration-ms="86431" started-at="2022-01-17T10:17:18Z" finished-at="2022-01-17T10:18:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="83188" started-at="2022-01-17T03:58:00Z" finished-at="2022-01-17T03:59:23Z">
-      <class name="tests.NewTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:tests.NewTest@6d00a15d]" name="beforeClass" is-config="true" duration-ms="27031" started-at="2022-01-17T09:28:00Z" finished-at="2022-01-17T09:28:27Z">
+    <test name="Default test" duration-ms="86431" started-at="2022-01-17T10:17:18Z" finished-at="2022-01-17T10:18:44Z">
+      <class name="tests.TestAspire">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:tests.TestAspire@6d00a15d]" name="beforeClass" is-config="true" duration-ms="40282" started-at="2022-01-17T15:47:18Z" finished-at="2022-01-17T15:47:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testCreateOrder()[pri:1, instance:tests.NewTest@6d00a15d]" name="testCreateOrder" duration-ms="29483" started-at="2022-01-17T09:28:27Z" finished-at="2022-01-17T09:28:56Z">
+        <test-method status="PASS" signature="testCreateOrder(java.lang.String, java.lang.String)[pri:1, instance:tests.TestAspire@6d00a15d]" name="testCreateOrder" duration-ms="25137" started-at="2022-01-17T15:47:58Z" finished-at="2022-01-17T15:48:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user@aspireapp.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[@sp1r3app]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreateOrder -->
-        <test-method status="PASS" signature="testCreateMO()[pri:2, instance:tests.NewTest@6d00a15d]" name="testCreateMO" duration-ms="16176" started-at="2022-01-17T09:28:56Z" finished-at="2022-01-17T09:29:13Z">
+        <test-method status="PASS" signature="testCreateMO()[pri:2, instance:tests.TestAspire@6d00a15d]" name="testCreateMO" duration-ms="16680" started-at="2022-01-17T15:48:23Z" finished-at="2022-01-17T15:48:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreateMO -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:tests.NewTest@6d00a15d]" name="afterClass" is-config="true" duration-ms="10457" started-at="2022-01-17T09:29:13Z" finished-at="2022-01-17T09:29:23Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:tests.TestAspire@6d00a15d]" name="afterClass" is-config="true" duration-ms="4087" started-at="2022-01-17T15:48:40Z" finished-at="2022-01-17T15:48:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- tests.NewTest -->
+      </class> <!-- tests.TestAspire -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
