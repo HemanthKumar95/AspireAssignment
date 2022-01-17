@@ -21,7 +21,6 @@ public class LoginPage {
 			driver.findElement(inputPassword).sendKeys(password);
 			driver.findElement(loginButton).click();
 		}catch(Exception e) {
-			System.out.println("Some error occured during execution "+e.getMessage());
 			Assert.fail("Error occured during Login "+e.getMessage());
 		}
 	}

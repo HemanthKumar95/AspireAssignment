@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
-  <test name="Test">
-    <classes>
-      <class name="tests.NewTest"/>
-    </classes>
-  </test> <!-- Test -->
+	<parameter name="userEmail" value="user@aspireapp.com" />
+	<parameter name="password" value="@sp1r3app" />
+	<test name="Test">
+		<classes>
+			<class name="tests.NewTest" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

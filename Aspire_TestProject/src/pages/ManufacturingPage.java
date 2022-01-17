@@ -10,6 +10,7 @@ public class ManufacturingPage {
 
 	static WebDriver driver;
 
+	// locators of page elements involved in creation of manufacturing order page
 	private static By createButton = By.xpath("//button[contains(text(),'Create')]");
 	private static By productName = By.cssSelector("div[name='product_id'] input");
 	private static By addALineLink = By.xpath("//div[contains(@class,'active')]//a[text()='Add a line']");
@@ -28,37 +29,57 @@ public class ManufacturingPage {
 	}
 
 	public static void createManufacturingOrder(String productName, String quantity) {
-		driver.findElement(createButton).click();
-		driver.findElement(ManufacturingPage.productName).sendKeys(productName);
-		driver.findElement(By.xpath(String.format(option, productName))).click();
-		driver.findElement(saveButton).click();
-		new WebDriverWait(driver, 3).until(ExpectedConditions.invisibilityOfElementLocated(saveButton));
-		driver.findElement(editButton).click();
+		// In this method, we are creating manufacturing order using product name and
+		// quantity passed as parameters
 
-		driver.findElement(addALineLink).click();
+		try {
 
-		driver.findElement(tableProductName).sendKeys(productName);
-		driver.findElement(By.xpath(String.format(option, productName))).click();
-		driver.findElement(orderQuantity).clear();
-		driver.findElement(orderQuantity).sendKeys(quantity);
+			// creation of Manufacturing order
+			driver.findElement(createButton).click();
+			driver.findElement(ManufacturingPage.productName).sendKeys(productName);
+			driver.findElement(By.xpath(String.format(option, productName))).click();
+			driver.findElement(saveButton).click();
+			new WebDriverWait(driver, 3).until(ExpectedConditions.invisibilityOfElementLocated(saveButton));
 
-		driver.findElement(saveButton).click();
+			// creation of bill order
+			driver.findElement(editButton).click();
+			driver.findElement(addALineLink).click();
+			driver.findElement(tableProductName).sendKeys(productName);
+			driver.findElement(By.xpath(String.format(option, productName))).click();
+			driver.findElement(orderQuantity).clear();
+			driver.findElement(orderQuantity).sendKeys(quantity);
+			driver.findElement(saveButton).click();
 
-		new WebDriverWait(driver, 3).until(ExpectedConditions.invisibilityOfElementLocated(saveButton));
-		driver.findElement(confirmButton).click();
+			// confirmation of order
+			new WebDriverWait(driver, 3).until(ExpectedConditions.invisibilityOfElementLocated(saveButton));
+			driver.findElement(confirmButton).click();
 
+		} catch (Exception e) {
+			Assert.fail("Unable to create manufactoring order due to " + e.getMessage());
+		}
 	}
 
 	public static void markOrderAsDone() {
-		new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(markAsDoneButton));
-		driver.findElement(markAsDoneButton).click();
-		driver.findElement(applyButton).click();
+		// Once the order is made and confirmed, we are marking the order is
+		// completed/done
+		try {
+			new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(markAsDoneButton));
+			driver.findElement(markAsDoneButton).click();
+			driver.findElement(applyButton).click();
+		} catch (Exception e) {
+			Assert.fail("Unable to mark order as done " + e.getMessage());
+		}
 	}
 
 	public static void verifyMO(String ExpectedproductName) {
-		new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(productNameMO));
-		String productName = driver.findElement(productNameMO).getText();
-		Assert.assertEquals(ExpectedproductName, productName);
+		// Once the manufacturing order is created, we verify the details of order
+		try {
+			new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(productNameMO));
+			String productName = driver.findElement(productNameMO).getText();
+			Assert.assertEquals(ExpectedproductName, productName);
+		} catch (Exception e) {
+			Assert.fail("Unable to verify manufacturing order details " + e.getMessage());
+		}
 	}
 
 }
